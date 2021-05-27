@@ -1,4 +1,7 @@
-function EmployeeForm (){
+import React, { useState } from 'react'
+
+
+function EmployeeForm (props){
     const [name,setName]=useState('')
     const [age,setAge]=useState('')
     const id = Math.random().toString()
@@ -12,15 +15,13 @@ function changeAgeValues(e){
 }
 function submit (e){
     e.preventDefault();
-    console.log(id)
-    console.log(name)
-    console.log(age)
+    props.formData(id, name, age)
 }
      return(
         <div>
         <form onSubmit={submit}>
-        <input type="text" placeholder="name" name="name" value ={name} onChange={changeNameValue}/>Name
-        <input type="number" placeholder="age" name="age" value = {age} onChange={changeAgeValues}/>Age
+        Name<input type="text" placeholder="name" name="name" value ={name} onChange={changeNameValues}/><br></br>
+        Age<input type="number" placeholder="age" name="age" value = {age} onChange={changeAgeValues}/><br></br>
         <button type="submit">Submit</button>
         </form>
         </div>

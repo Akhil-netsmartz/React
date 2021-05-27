@@ -3,6 +3,9 @@ import './App.css';
 import employeeData from './employeeData'
 import EmployeeData from './employeeData';
 import NewEmployee from './newemployee'
+import EmployeeFilter from './EmployeeFilter';
+import { useState } from 'react';
+import Employees from './Employees';
  const employees= [
   {
     id: 'e1',
@@ -36,7 +39,7 @@ import NewEmployee from './newemployee'
   },
 ];
 
-
+const ageFilter =[12,20, 22,21, 23, 24]
 
 function App() {
   
@@ -72,13 +75,26 @@ function App() {
   //     age: 25
   //   },
   // ];
-  
-  
-  
+
+  const[id,setId] = useState('')
+  const [name,setName]=useState('')
+    const [age,setAge]=useState('')
+  function empData(id, name, age){
+    console.log("Id is ",id)
+    console.log("Name is ",name)
+    console.log("Age is ",age)
+    setName(name)
+    setId(id)
+    setAge(age)
+  }
   return (
     <div className="App">
       <EmployeeData employees = {employees} />
-      <NewEmployee/>
+      <NewEmployee data = {empData}/>
+      {/* <div>{id}</div>
+      <div>{name}</div>
+      <div>{age}</div> */}
+      <Employees />
     </div>
   );
 }
