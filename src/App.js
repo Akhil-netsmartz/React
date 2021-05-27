@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import employeeData from './employeeData'
 import EmployeeData from './employeeData';
-
+import NewEmployee from './newemployee'
  const employees= [
   {
     id: 'e1',
@@ -78,6 +78,7 @@ function App() {
   return (
     <div className="App">
       <EmployeeData employees = {employees} />
+      <NewEmployee/>
     </div>
   );
 }
