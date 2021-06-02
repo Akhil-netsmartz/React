@@ -23,3 +23,30 @@ button{
     text-align: center;
 }
 
+.form-signup{
+    background-color:blueviolet;
+    height: 50px;
+}
+
+.alignment-form{
+    margin-right:30px;
+    /* /width: 300px; */
+    height:20px;
+}
+
+.filter-design{
+    background-color: pink;
+    height: 200px
+}
+
+.filter-align-left{
+    text-align:left
+}
+
+.filter-align-right{
+    text-align: center;;
+}
+
+/* .list{
+    text-align:center;
+} */

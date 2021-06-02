@@ -1,18 +1,30 @@
 import { useState } from "react"
+import './components/logic.css'
 
 function EmployeeFilter(props){
-    const [age,setAge] = useState('');
+const [age,setAge]=useState('')
     function selectedValue(e){
-        setAge(e.target.value)
-        console.log("Selected age is ",age)
+        setAge(e.target.value)       
     }
 
     return(
-        <div>
-            <div> Select your age</div>
+        <div className = "filter-design">
+            <div className ="filter-align-left"> Select your age<br></br>
             <select value ={age} onChange={selectedValue}>
-            {props.ages.map((item,index) => <option key = {index} value={item}>{item}</option>)}
+                <option>all</option>
+            {props.ages.map((item,index) => (<option key = {index} >{item.age}</option>))}
             </select>
+            </div>
+            <span className ="filter-align-right">
+                {props.ages.filter(item => item.age == age).map(filteredData => (
+                    <li className = "list" key = {filteredData.id}>
+                    Name:{filteredData.name}<br/>
+                    Age:{filteredData.age}<br/>
+                    Id:{filteredData.id}
+                
+                    </li>
+                ))}
+            </span>
         </div>
 
     )
